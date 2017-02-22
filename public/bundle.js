@@ -54,15 +54,13 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
+	var _App = __webpack_require__(178);
+
+	var _App2 = _interopRequireDefault(_App);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	_reactDom2.default.render(_react2.default.createElement(
-	  'h1',
-	  null,
-	  'Ol\xE1'
-	), document.getElementById("app"));
-
-	$;
+	_reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById("app"));
 
 /***/ },
 /* 1 */
@@ -21539,6 +21537,58 @@
 
 	module.exports = ReactDOMInvalidARIAHook;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 178 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	__webpack_require__(179);
+
+	__webpack_require__(188);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = function (props) {
+	    return _react2.default.createElement(
+	        'div',
+	        { className: 'container' },
+	        _react2.default.createElement(
+	            'h1',
+	            null,
+	            'Teste'
+	        )
+	    );
+	};
+
+/***/ },
+/* 179 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 180 */,
+/* 181 */,
+/* 182 */,
+/* 183 */,
+/* 184 */,
+/* 185 */,
+/* 186 */,
+/* 187 */,
+/* 188 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
 
 /***/ }
 /******/ ]);
