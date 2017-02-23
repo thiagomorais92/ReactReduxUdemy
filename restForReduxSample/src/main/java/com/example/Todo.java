@@ -13,6 +13,10 @@ public class Todo {
 	
 	private Date createdAt;
 
+	public Todo() {
+		
+		this.id = new Random().nextInt(400);
+	}
 	
 	public Todo(String description, boolean done) {
 		super();
@@ -30,6 +34,7 @@ public class Todo {
 		this.createdAt = new Date();
 		this.id = new Random().nextInt(400);
 	}
+	
 	
 	public int getId() {
 		return id;

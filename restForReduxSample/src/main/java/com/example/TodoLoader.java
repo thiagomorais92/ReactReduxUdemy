@@ -38,15 +38,14 @@ public class TodoLoader {
 
 	
 	
-	public static Todo addTodo(Todo todo) {
+	public static List<Todo> addTodo(Todo todo) {
 		lista.add(todo);
-		return todo;
+		return lista;
 	}
 
 	
 	
 	public static void removeTodo(int todoId) {
-		
 		for(Iterator<Todo> iterator = lista.iterator();iterator.hasNext();){
 			Todo todo = iterator.next();
 			if(todo.getId() == todoId){
@@ -54,5 +53,18 @@ public class TodoLoader {
 			}
 		}
 		
+	}
+
+
+
+	public static List<Todo> getByFilter(String description) {
+		List<Todo> listaResultado = new ArrayList<>(0);
+		for(Iterator<Todo> iterator = lista.iterator();iterator.hasNext();){
+			Todo todo = iterator.next();
+			if(todo.getDescription().contains(description)){
+				listaResultado.add(todo);
+			}
+		}
+		return listaResultado;
 	}
 }	
