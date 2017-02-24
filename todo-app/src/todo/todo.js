@@ -16,14 +16,16 @@ export default class Todo extends Component{
         this.handleSearch = this.handleSearch.bind(this);
         this.handleMaskAsDone = this.handleMaskAsDone.bind(this);
         this.handleMaskAsPending = this.handleMaskAsPending.bind(this);
+        this.handleClearSearch = this.handleClearSearch.bind(this);
         this.refresh();
     }
 
-    refresh(dadosPesquisa){
+    refresh(dadosPesquisa,descriptionAtual = ''){
+        
         if(dadosPesquisa){
-            this.setState({...this.state,description:'',list:dadosPesquisa.data});
+            this.setState({...this.state,description:this.state.description,list:dadosPesquisa.data});
         }else{
-        axios.get(URL).then((resp) => this.setState({...this.state,description:'',list:resp.data}))
+        axios.get(URL).then((resp) => this.setState({...this.state,description:descriptionAtual,list:resp.data}))
         }
     }
 
@@ -40,13 +42,13 @@ export default class Todo extends Component{
 
     handleRemove(todo){
         axios.delete(`${URL}/${todo.id}`,true).then(() =>{
-            this.refresh();
+            this.handleSearch();
         })
     }
 
     handleMaskAsDone(todo){
         axios.put(`${URL}/${todo.id}/${true}`)
-            .then(() => this.refresh())
+            .then(() => this.handleSearch())
     }
 
     handleMaskAsPending(todo){
@@ -65,6 +67,11 @@ export default class Todo extends Component{
         
     }
 
+    handleClearSearch(){
+        this.state.description = '';
+        this.handleSearch();
+    }
+
     render(){
         return (
             <div>
@@ -73,6 +80,7 @@ export default class Todo extends Component{
                           handleChange={this.handleChange} 
                           description={this.state.description}
                           handleSearch={this.handleSearch}
+                          handleClearSearch={this.handleClearSearch}
                          />
                 <TodoList list={this.state.list} 
                         handleRemove={this.handleRemove}
