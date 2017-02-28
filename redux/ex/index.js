@@ -6,7 +6,7 @@ import Counter  from './Counter'
 import counterReducer from './counterReducer'
 
 const reducers = combineReducers({
-    counterReducer
+    counter:counterReducer
 })
 const STORE = createStore(reducers);
 
@@ -14,5 +14,5 @@ ReactDom.render(
     <Provider store={STORE}>
         <Counter></Counter>
     </Provider>
-    
+
 ,document.getElementById("app"))
